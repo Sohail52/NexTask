@@ -214,18 +214,6 @@ User
 └── Todos
 ```
 
----
-
-## Challenges Faced
-
-- Implementing Auth.js v5 authentication
-- Managing server actions and route protection
-- Configuring Prisma for Vercel deployment
-- Handling strict TypeScript checks in CI/CD
-- Ensuring user-level data isolation
-
----
-
 ## Getting Started
 
 ### Prerequisites
