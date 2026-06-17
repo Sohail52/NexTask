@@ -1,81 +1,20 @@
 # NexTask
 
-A modern project management platform built with Next.js that helps developers and teams organize projects, track tasks, and manage personal todos from a single workspace.
+A modern full-stack project and task management platform built with Next.js.
 
-NexTask combines project tracking, task management, and personal productivity tools into one clean and responsive dashboard. Each user has a secure workspace where their projects, tasks, and todos remain completely isolated from other users.
-
----
-
-## Deployment
-
-The application is deployed on Vercel.
-
-Frontend: Vercel
-Database: Neon PostgreSQL
-Authentication: Auth.js
-
-🔗 [Live Demo](https://devboard-topaz.vercel.app)
-
----
+NexTask helps users manage projects, track tasks, and organize personal todos from a single dashboard while keeping all data securely isolated per user.
 
 ## Features
 
-### Authentication
-
-- Secure user registration and login
-- Credential-based authentication using Auth.js
-- Protected dashboard routes
-- Session management
-- User-specific data access
-
-### Dashboard
-
-- Personalized dashboard overview
-- Project statistics
-- Task statistics
-- Todo statistics
-- Recent activity sections
-
-### Project Management
-
-- Create new projects
-- View project details
-- Track project status
-- Organize project-related tasks
-- Project ownership and access control
-
-### Task Management
-
-- Create tasks within projects
-- Track task progress
-- Update task status
-- Task prioritization
-- View tasks by project
-
-### Personal Todos
-
-- Create personal todo items
-- Track completion status
-- Manage independent tasks outside projects
-- Quick productivity workflow
-
-### User Profile
-
-- Profile overview
-- Workspace statistics
-- Account information
-- User activity summary
-
-### User Experience
-
-- Responsive dashboard layout
-- Loading states
-- Error boundaries
-- Custom 404 pages
-- Clean and modern interface
-- Mobile-friendly navigation
-
----
+* Secure authentication with Auth.js
+* Project management
+* Task management with priorities and status tracking
+* Personal todo management
+* User dashboard with workspace statistics
+* User profile page
+* Dark mode support
+* Responsive design
+* Protected routes and user-specific data access
 
 ## Screenshots
 
@@ -91,127 +30,26 @@ Authentication: Auth.js
 
 ![Profile](./public/Profile.png)
 
----
-
 ## Tech Stack
 
-### Frontend
+* Next.js 16
+* React 19
+* TypeScript
+* Tailwind CSS
+* Auth.js (NextAuth v5)
+* PostgreSQL (Neon)
+* Prisma ORM
+* Zod
 
-- Next.js 16
-- React 19
-- TypeScript
-- Tailwind CSS
-- Lucide React Icons
+## Architecture
 
-### Backend
-
-- Next.js Server Components
-- Server Actions
-- Route Handlers
-
-### Authentication
-
-- Auth.js (NextAuth v5)
-
-### Database
-
-- PostgreSQL
-- Neon Database
-
-### ORM
-
-- Prisma ORM
-
-### Validation
-
-- Zod
-
-### Package Manager
-
-- Bun
-
-![Next.js](https://img.shields.io/badge/Next.js-16-black)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
-![Prisma](https://img.shields.io/badge/Prisma-ORM-2D3748)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Neon-336791)
-![Auth.js](https://img.shields.io/badge/Auth.js-v5-green)
-
----
-
-## Application Architecture
-
-NexTask follows a full-stack architecture using the Next.js App Router.
-
-### Structure
-
-```
-app/
-├── (auth)/
-├── actions/
-├── dashboard/
-├── api/
-├── error.tsx
-├── not-found.tsx
-├── page.tsx
-└── layout.tsx
-
-components/
-├── auth/
-├── dashboard/
-├── projects/
-├── tasks/
-└── todos/
-
-lib/
-├── services/
-├── db.ts
-└── auth.ts
-
-prisma/
-└── schema.prisma
-
-schema/
-
-types/
-```
-
-### Key Design Decisions
-
-- Server Components for data fetching
-- Server Actions for mutations
-- Prisma for type-safe database access
-- Auth.js for authentication and session handling
-- Route protection at the application level
-- User data isolation through ownership checks
-- Reusable service layer for business logic
-
----
-
-## Database Models
-
-### User
-
-Stores account information and authentication data.
-
-### Project
-
-Represents a user's project workspace.
-
-### Task
-
-Represents work items associated with projects.
-
-### Todo
-
-Represents personal tasks outside project workflows.
-
-Relationships:
-
-```
+```text
 User
-├── Projects
-│ └── Tasks
-└── Todos
+ │
+ ├── Projects
+ │     └── Tasks
+ │
+ └── Todos
 ```
 
 ## Getting Started
@@ -228,7 +66,7 @@ Clone the repository:
 
 ```bash
 git clone <repository-url>
-cd devboard
+cd nextask
 ```
 
 Install dependencies:
@@ -237,21 +75,13 @@ Install dependencies:
 bun install
 ```
 
----
-
-## Environment Variables
-
-Create a `.env` file in the project root:
+Create a `.env` file:
 
 ```env
-DATABASE_URL="your_database_url"
-AUTH_SECRET="your_auth_secret"
-AUTH_URL="http://localhost:3000"
+DATABASE_URL=
+AUTH_SECRET=
+AUTH_URL=http://localhost:3000
 ```
-
----
-
-## Database Setup
 
 Generate Prisma Client:
 
@@ -259,50 +89,38 @@ Generate Prisma Client:
 bunx prisma generate
 ```
 
-Run database migrations:
-
-```bash
-bunx prisma migrate deploy
-```
-
-For development:
+Run migrations:
 
 ```bash
 bunx prisma migrate dev
 ```
 
----
-
-## Running Locally
-
-Development mode:
+Start the development server:
 
 ```bash
 bun run dev
 ```
 
-Application will be available at:
+Open:
 
 ```text
 http://localhost:3000
 ```
 
----
+## Database
 
-## Production Build
-
-Build the application:
+Open Prisma Studio:
 
 ```bash
-bun run build
+bunx prisma studio
 ```
 
-Start production server:
+This launches a local UI where you can view and edit Users, Projects, Tasks, and Todos.
 
-```bash
-bun run start
-```
+## Deployment
 
----
+* Frontend: Vercel
+* Database: Neon PostgreSQL
+* Authentication: Auth.js
 
 
