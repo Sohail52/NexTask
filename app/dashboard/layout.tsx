@@ -1,0 +1,22 @@
+import { getCurrentUser } from "@/lib/auth";
+import { redirect } from "next/navigation";
+import DashboardShell from "@/components/dashboard/dashboard-shell";
+
+export default async function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const user = await getCurrentUser();
+  if (!user?.id) {
+    redirect("/signin");
+  }
+
+  const dashboardUser = {
+    id: user.id,
+    name: user.name,
+    email: user.email,
+  };
+
+  return <DashboardShell user={dashboardUser}>{children}</DashboardShell>;
+}

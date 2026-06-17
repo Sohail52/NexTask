@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.dark {
+  /* Page background */
+  --color-neutral-50: #0F172A;
+  
+  /* Cards and dashboard boxes background */
+  --color-white: #1E293B;
+  
+  /* Borders */
+  --color-neutral-100: #334155;
+  --color-neutral-200: #334155;
+  --color-neutral-300: #475569;
+  
+  /* Primary text */
+  --color-neutral-800: #F8FAFC;
+  --color-neutral-900: #F8FAFC;
+  
+  /* Secondary text */
+  --color-neutral-400: #94A3B8;
+  --color-neutral-500: #94A3B8;
+  --color-neutral-600: #cbd5e1;
+}
+
+/* Specific elements for dark mode */
+.dark aside,
+.dark header {
+  background-color: #111827 !important;
+  border-color: #334155 !important;
+}
+
+/* In the sidebar, the active NavLink uses bg-neutral-100. Make it match the card theme */
+.dark aside .bg-neutral-100 {
+  background-color: #1E293B !important;
+}
+
+/* Profile link background in sidebar */
+.dark aside .hover\:bg-neutral-50:hover {
+  background-color: #273449 !important;
+}
+
+/* Hover effects for lists and tables */
+.dark .hover\:bg-neutral-50\/60:hover {
+  background-color: rgba(39, 52, 73, 0.6) !important;
+}
+.dark .hover\:bg-neutral-50:hover {
+  background-color: #273449 !important;
+}
+
+/* Override background-color of standard dark button in dark mode to invert it */
+.dark .bg-neutral-900 {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+.dark .bg-neutral-900 * {
+  color: #0f172a !important;
+}
+.dark .bg-neutral-900:hover {
+  background-color: #cbd5e1 !important;
+}
+
+/* Root body and landing page container overrides */
+.dark body,
+.dark .min-h-screen.bg-white {
+  background-color: #0F172A !important;
+}
+
+/* Breadcrumb arrow and menu button color correction in header */
+.dark header .text-neutral-300 {
+  color: #475569 !important;
+}
+
