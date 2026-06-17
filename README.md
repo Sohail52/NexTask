@@ -87,14 +87,6 @@ Authentication: Auth.js
 
 ![Dashboard](./public/Dashboard.png)
 
-### Projects
-
-![Projects](./public/Projects.png)
-
-### Todos
-
-![Todos](./public/Todos.png)
-
 ### Profile
 
 ![Profile](./public/Profile.png)
